@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     public Animator _anim;
     public ControllerType controllerType = ControllerType.SideScroller;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,10 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+
     private void LateUpdate()
     {
         if(controllerType == ControllerType.SideScroller)
