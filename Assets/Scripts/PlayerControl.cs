@@ -55,10 +55,6 @@ public class PlayerControl : MonoBehaviour
                 isGrounded = false;
             }
         }
-        else
-        {
-            transform.Translate(new Vector3( movVector.x- movVector.y, 0, movVector.x + movVector.y) * speed * Time.deltaTime);
-        }
     }
 
 
