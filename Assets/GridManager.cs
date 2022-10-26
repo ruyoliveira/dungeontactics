@@ -13,12 +13,11 @@ public class GridManager : MonoBehaviour
     public Dictionary<Vector2, GameObject> tiles;
     public bool generateGrid;
 
-    public int testX;
-    public int testY;
+    public Vector2 testSelectPos;
     public bool testSelect;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GenerateGrid(width, height);
     }
@@ -35,12 +34,14 @@ public class GridManager : MonoBehaviour
         {
             totalTiles = tiles.Count;
         }
+
+        // Test selected position
         if(testSelect)
         {
             testSelect = !testSelect;
             GenerateGrid(height, width);
             totalTiles = tiles.Count;
-            SelectTile(testX, testY);
+            SelectTile(testSelectPos);
         }
 
     }
@@ -92,10 +93,10 @@ public class GridManager : MonoBehaviour
         }
     }
     // Coloryze one tile
-    public GameObject SelectTile(int x, int y)
+    public GameObject SelectTile(Vector2 pos)
     {
 
-        if (tiles.TryGetValue(new Vector2(x, y), out var tile))
+        if (tiles.TryGetValue(pos, out var tile))
         {
             tile.GetComponent<Tile>().SetColor(1);
             return tile;

@@ -9,7 +9,9 @@ public class PlayerTileMovement : MonoBehaviour
     public GridManager currentGrid;
     // Player position offset insider the tile
     public Vector3 posOffset;
-    public Vector2 movVector;
+
+    [SerializeField]
+    private Vector2 movVector;
     // Delay between inputs
     public float inputDelay;
     public float timer;
@@ -17,8 +19,9 @@ public class PlayerTileMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public void PrepareBattle()
     {
+        // Player start position
         transform.position = currentGrid.GetTile(currentGrid.startPos).transform.position + posOffset;
         currTileId = currentGrid.startPos;
         timer = inputDelay;
