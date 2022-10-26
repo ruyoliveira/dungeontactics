@@ -56,7 +56,7 @@ public class PlayerControl : MonoBehaviour
         _anim.SetBool("isometric", true);
         tileMovement.PrepareBattle();
     }
-    private void OnMove(InputValue movementValue)
+    public void OnMove(InputValue movementValue)
     {
         movVector = movementValue.Get<Vector2>();
     }
