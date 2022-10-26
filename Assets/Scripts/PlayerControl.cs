@@ -33,10 +33,6 @@ public class PlayerControl : MonoBehaviour
         {
             transform.Translate(Vector3.forward * movVector.x * speed * Time.deltaTime);
         }
-        else
-        {
-            transform.Translate(new Vector3( movVector.x- movVector.y, 0, movVector.x + movVector.y) * speed * Time.deltaTime);
-        }
     }
 
 
