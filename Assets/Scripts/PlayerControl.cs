@@ -9,15 +9,27 @@ public enum ControllerType { SideScroller, Isometric};
 public class PlayerControl : MonoBehaviour
 {
     Vector2 movVector;
+    Vector3 jump;
     public float speed;
+    public Rigidbody rb;
+    public float jumpHeight = 2.0f;
+    public bool isGrounded;
     public Animator _anim;
     public ControllerType controllerType = ControllerType.SideScroller;
 
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
 
+    void OnCollisionExit()
+    {
+        isGrounded=false;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        speed = 10;
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     // Update is called once per frame
@@ -26,12 +38,22 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+       
+    }
 
     private void LateUpdate()
     {
         if(controllerType == ControllerType.SideScroller)
         {
             transform.Translate(Vector3.forward * movVector.x * speed * Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                rb.AddForce(jump * jumpHeight, ForceMode.Impulse);
+                isGrounded = false;
+            }
         }
         else
         {
@@ -43,7 +65,6 @@ public class PlayerControl : MonoBehaviour
     private void OnMove(InputValue movementValue)
     {
         movVector = movementValue.Get<Vector2>();
-
     }
 
     private void OnTriggerEnter(Collider other)
