@@ -42,9 +42,11 @@ public class PlayerBattleHandler : MonoBehaviour
 
         if (selectedCard)
         {
+            // Temporary disable movement
+            playerTileMovement.DisableMovement(1.0f);
             foreach (Vector2 target in selectedCard.targets)
             {
-                currentGrid.SelectTile(target + playerTileMovement.currTileId);
+                currentGrid.SelectTile(target + playerTileMovement.currTileId).SetTimedEffect(EffectType.Damage,1.0f, 0.3f);
             }
         }
     }
