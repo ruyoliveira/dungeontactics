@@ -12,9 +12,12 @@ public class PlayerTileMovement : MonoBehaviour
 
     [SerializeField]
     private Vector2 movVector;
-    // Delay between inputs
     public float inputDelay;
-    public float timer;
+    // Delay used to inputs and temporary disabling movement
+    [SerializeField]
+    private float delay;
+    [SerializeField]
+    private float timer;
     public Vector2 currTileId;
 
 
@@ -24,17 +27,22 @@ public class PlayerTileMovement : MonoBehaviour
         // Player start position
         transform.position = currentGrid.GetTile(currentGrid.startPos).transform.position + posOffset;
         currTileId = currentGrid.startPos;
-        timer = inputDelay;
+        timer = delay;
     }
-
+    private void BeginDelay(float time)
+    {
+        timer = 0;
+        delay = time;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (timer >= inputDelay)
+        if (timer >= delay)
         {
-            timer = 0;
+            
             if (movVector.x > 0)
             {
+                BeginDelay(inputDelay);
                 Debug.Log("Right");
                 // Check if tile  is walkable or exists
                 GameObject newTileObj = currentGrid.GetTile(currTileId + Vector2.right);
@@ -44,11 +52,11 @@ public class PlayerTileMovement : MonoBehaviour
                     currTileId += Vector2.right;
                     // Update player position
                     transform.position = newTileObj.transform.position + posOffset;
-
                 }
             }
             else if (movVector.x < 0)
             {
+                BeginDelay(inputDelay);
                 Debug.Log("Left");
                 // Check if tile  is walkable or exists
                 GameObject newTileObj = currentGrid.GetTile(currTileId + Vector2.left);
@@ -63,7 +71,7 @@ public class PlayerTileMovement : MonoBehaviour
 
             else if (movVector.y > 0)
             {
-
+                BeginDelay(inputDelay);
                 Debug.Log("Up");
                 // Check if tile  is walkable or exists
                 GameObject newTileObj = currentGrid.GetTile(currTileId + Vector2.up);
@@ -78,6 +86,7 @@ public class PlayerTileMovement : MonoBehaviour
             }
             else if (movVector.y < 0)
             {
+                BeginDelay(inputDelay);
                 Debug.Log("Down");
                 // Check if tile  is walkable or exists
                 GameObject newTileObj = currentGrid.GetTile(currTileId + Vector2.down);
@@ -98,5 +107,12 @@ public class PlayerTileMovement : MonoBehaviour
     {
         movVector = movementValue.Get<Vector2>();
 
+    }
+
+    // Disable movement using delay and timer
+    public void DisableMovement(float time)
+    {
+        delay = time;
+        timer = 0;
     }
 }

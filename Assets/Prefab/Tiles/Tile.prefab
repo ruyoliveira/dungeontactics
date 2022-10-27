@@ -111,5 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colors:
-  - {r: 0.46226418, g: 0, b: 0, a: 0}
-  - {r: 0.23065409, g: 0.8962264, b: 0.19023676, a: 0}
+  - {r: 0.46226418, g: 0, b: 0, a: 1}
+  - {r: 0.23065409, g: 0.8962264, b: 0.19023676, a: 1}
+  _currentEffect: 0
+  _isTimedEffect: 0
+  _timer: 0
+  _time: 0

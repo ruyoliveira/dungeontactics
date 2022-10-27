@@ -93,13 +93,12 @@ public class GridManager : MonoBehaviour
         }
     }
     // Coloryze one tile
-    public GameObject SelectTile(Vector2 pos)
+    public Tile SelectTile(Vector2 pos)
     {
 
         if (tiles.TryGetValue(pos, out var tile))
         {
-            tile.GetComponent<Tile>().SetColor(1);
-            return tile;
+            return tile.GetComponent<Tile>();
         }
         else
         {
