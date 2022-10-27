@@ -10,13 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cae2ed58931f44042b8831ca9c463037, type: 3}
-  m_Name: Card3
+  m_Name: Outer Ring
   m_EditorClassIdentifier: 
-  title: name
+  title: 
   targets:
-  - {x: 3, y: 0}
-  - {x: 4, y: 0}
-  - {x: 5, y: 0}
-  - {x: 3, y: 3}
-  - {x: 3, y: 2}
+  - {x: 0, y: 2}
+  - {x: 0, y: -2}
+  - {x: 2, y: 0}
+  - {x: -2, y: 0}
+  - {x: 2, y: 2}
+  - {x: 2, y: -2}
+  - {x: -2, y: 2}
+  - {x: -2, y: -2}
+  - {x: 2, y: 1}
+  - {x: 2, y: -1}
+  - {x: 1, y: 2}
+  - {x: -1, y: 2}
+  - {x: -2, y: 1}
+  - {x: -2, y: -1}
+  - {x: 1, y: -2}
+  - {x: -1, y: -2}
   cardType: 0
