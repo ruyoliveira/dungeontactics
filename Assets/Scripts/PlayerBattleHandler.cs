@@ -12,6 +12,9 @@ public class PlayerBattleHandler : MonoBehaviour
     public PlayerTileMovement playerTileMovement;
     public int currCard;
 
+    // Card art
+    public GameObject[] cardHUD;
+
     // Delay used to inputs and temporary disabling movement
     public float delay = 1f;
     private float timer;
@@ -21,6 +24,7 @@ public class PlayerBattleHandler : MonoBehaviour
         //_input = GetComponent<GenPlayerInput>();
         currCard = 0;
         timer = 0;
+        NextCardRandom();
     }
     private void OnEnable()
     {
@@ -62,27 +66,40 @@ public class PlayerBattleHandler : MonoBehaviour
     public Card NextCardRandom()
     {
         currCard = Random.Range(0, cards.Length);
+        UpdateCardHUD(cards[currCard].id);
         return cards[currCard];
+    }
+    private void UpdateCardHUD(int id)
+    {
+        foreach(GameObject obj in cardHUD)
+        {
+            obj.SetActive(false);
+        }
+        if(id < cardHUD.Length)
+        {
+            Debug.Log("Card ID: " + id);
+            cardHUD[id].SetActive(true);
+        }
     }
     public void OnAction1()
     {
         Debug.Log("Action1");
         if(! IsOnCooldown())
         {
-            if (NextCardRandom())
+            // Temporary disable movement
+            playerTileMovement.DisableMovement(1.0f);
+            foreach (Vector2 target in cards[currCard].targets)
             {
-                // Temporary disable movement
-                playerTileMovement.DisableMovement(1.0f);
-                foreach (Vector2 target in cards[currCard].targets)
+                Tile selTile = currentGrid.SelectTile(target + playerTileMovement.currTileId);
+                if (selTile != null)
                 {
-                    Tile selTile = currentGrid.SelectTile(target + playerTileMovement.currTileId);
-                    if (selTile != null)
-                    {
-                        selTile.SetTimedEffect(EffectType.Damage, 1.0f, 0.3f);
-                        SetCooldown();
-                    }
+                    selTile.SetTimedEffect(EffectType.Damage, 1.0f, 0.3f);
+                    SetCooldown();
                 }
             }
+            NextCardRandom();
+
+            
         }
         
     }

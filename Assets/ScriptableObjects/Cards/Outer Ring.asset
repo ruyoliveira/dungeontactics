@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae2ed58931f44042b8831ca9c463037, type: 3}
   m_Name: Outer Ring
   m_EditorClassIdentifier: 
+  id: 5
   title: 
   targets:
   - {x: 0, y: 2}

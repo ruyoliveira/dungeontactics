@@ -6,6 +6,7 @@ public enum CardType { None, Damage}
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card", order = 1)]
 public class Card : ScriptableObject
 {
+    public int id;
     // Card title
     public string title;
     // Effect targets

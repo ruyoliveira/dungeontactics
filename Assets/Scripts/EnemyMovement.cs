@@ -67,9 +67,7 @@ public class EnemyMovement : MonoBehaviour
             if (!hasDamaged && CheckDamageTile())
             {
                 hasDamaged = true;
-                _enemy.currHP--;
-                // Feedback
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
+                _enemy.ApplyDamage(1);
             }
         }
         
