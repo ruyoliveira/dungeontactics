@@ -24,16 +24,7 @@ public class PlayerBattleHandler : MonoBehaviour
 
     private void Update()
     {
-        
-        /*
-        if(Keyboard.current.jKey.wasPressedThisFrame)
-        {
-            Debug.Log("Action1");
-            // Use selected card
-            
-        }
-        */
-        
+
 
     }
     public void OnAction1()

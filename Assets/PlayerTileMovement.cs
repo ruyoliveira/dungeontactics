@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerTileMovement : MonoBehaviour
 {
+    public Player _player;
     public GridManager currentGrid;
     // Player position offset insider the tile
     public Vector3 posOffset;
@@ -14,11 +15,13 @@ public class PlayerTileMovement : MonoBehaviour
     private Vector2 movVector;
     public float inputDelay;
     // Delay used to inputs and temporary disabling movement
-    [SerializeField]
     private float delay;
-    [SerializeField]
     private float timer;
     public Vector2 currTileId;
+    private Tile currentTile;
+
+    // Damage checking once
+    public bool hasDamaged;
 
 
     // Start is called before the first frame update
@@ -50,9 +53,14 @@ public class PlayerTileMovement : MonoBehaviour
                 {
                     // Update current tile id
                     currTileId += Vector2.right;
+                    // Update current tile
+                    currentTile = currentGrid.SelectTile(currTileId);
                     // Update player position
                     transform.position = newTileObj.transform.position + posOffset;
+                    hasDamaged = false;
+
                 }
+
             }
             else if (movVector.x < 0)
             {
@@ -64,8 +72,12 @@ public class PlayerTileMovement : MonoBehaviour
                 {
                     // Update current tile id
                     currTileId += Vector2.left;
+                    // Update current tile
+                    currentTile = currentGrid.SelectTile(currTileId);
                     // Update player position
                     transform.position = newTileObj.transform.position + posOffset;
+                    hasDamaged = false;
+
                 }
             }
 
@@ -79,8 +91,12 @@ public class PlayerTileMovement : MonoBehaviour
                 {
                     // Update current tile id
                     currTileId += Vector2.up;
+                    // Update current tile
+                    currentTile = currentGrid.SelectTile(currTileId);
                     // Update player position
                     transform.position = newTileObj.transform.position + posOffset;
+                    hasDamaged = false;
+
                 }
 
             }
@@ -94,14 +110,29 @@ public class PlayerTileMovement : MonoBehaviour
                 {
                     // Update current tile id
                     currTileId += Vector2.down;
+                    // Update current tile
+                    currentTile = currentGrid.SelectTile(currTileId);
                     // Update player position
                     transform.position = newTileObj.transform.position + posOffset;
+                    hasDamaged = false;
+
                 }
             }
         }
         else
             timer += Time.deltaTime;
-        
+
+        if (currentTile != null)
+        {
+            if (!hasDamaged && CheckDamageTile())
+            {
+                hasDamaged = true;
+                _player.currHP--;
+                // Feedback
+                GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
+            }
+        }
+
     }
     private void OnMove(InputValue movementValue)
     {
@@ -114,5 +145,10 @@ public class PlayerTileMovement : MonoBehaviour
     {
         delay = time;
         timer = 0;
+    }
+
+    private bool CheckDamageTile()
+    {
+        return currentTile.GetEffect() == EffectType.Damage;
     }
 }
