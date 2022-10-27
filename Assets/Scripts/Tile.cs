@@ -10,6 +10,7 @@ public class Tile : MonoBehaviour
     public Color[] colors;
     public Vector3[] hsvcolors;
 
+    public Vector3 currHSVColor;
     private Renderer _renderer;
 
     [SerializeField]
@@ -41,7 +42,7 @@ public class Tile : MonoBehaviour
         if( _isTimedEffect == true && _currentEffect != EffectType.None)
         {
             // Blink effect
-            Vector3 _hsv = hsvcolors[1];
+            Vector3 _hsv = currHSVColor;
             _hsv.z = Mathf.Abs(Mathf.Sin(_timer / _time * 360 * Mathf.PI / 180)) /2.0f + 0.5f; //    *4 + 0.5f;
             _renderer.material.color = Color.HSVToRGB(_hsv.x, _hsv.y, _hsv.z);
             
@@ -61,7 +62,16 @@ public class Tile : MonoBehaviour
         if(id < colors.Length)
         {
             _renderer.material.color = colors[id];
+            currHSVColor = hsvcolors[id];
         }
+    }
+    public void SetColor(Color color)
+    {
+        // Change Tile color
+        _renderer.material.color = color;
+        Color.RGBToHSV(color, out currHSVColor.x, out currHSVColor.y, out currHSVColor.z);
+
+
     }
     // Apply effect to tile for a limited time, delay maight be considered in the future
     public void SetTimedEffect(EffectType effect, float time, float delay)
@@ -71,6 +81,14 @@ public class Tile : MonoBehaviour
         _time = time;
         _timer = 0;
         SetColor(1);
+    }
+    public void SetTimedEffect(EffectType effect, float time, float delay,  Color color)
+    {
+        _currentEffect = effect;
+        _isTimedEffect = true;
+        _time = time;
+        _timer = 0;
+        SetColor(color);
     }
     // Get current effect applied to tile
     public EffectType GetEffect()
