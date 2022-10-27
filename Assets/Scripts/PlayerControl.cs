@@ -54,7 +54,7 @@ public class PlayerControl : MonoBehaviour
     {
         controllerType = ControllerType.Isometric;
         _anim.SetBool("isometric", true);
-        tileMovement.PrepareBattle();
+        //tileMovement.PrepareBattle();
     }
     public void OnMove(InputValue movementValue)
     {
@@ -66,6 +66,7 @@ public class PlayerControl : MonoBehaviour
         if(other.transform.CompareTag("Encounter"))
         {
             Debug.Log("Encounter triggered");
+            other.GetComponent<EncounterController>().PrepareBattle();
            
             ChangeToIsometric();
         }

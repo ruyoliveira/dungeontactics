@@ -8,6 +8,7 @@ public class PlayerTileMovement : MonoBehaviour
 {
     public Player _player;
     public GridManager currentGrid;
+    public Vector2 spawnPoint;
     // Player position offset insider the tile
     public Vector3 posOffset;
 
@@ -17,6 +18,8 @@ public class PlayerTileMovement : MonoBehaviour
     // Delay used to inputs and temporary disabling movement
     private float delay;
     private float timer;
+    // On delay
+    public bool isOnDelay = false;
     public Vector2 currTileId;
     private Tile currentTile;
 
@@ -28,21 +31,26 @@ public class PlayerTileMovement : MonoBehaviour
     public void PrepareBattle()
     {
         // Player start position
-        transform.position = currentGrid.GetTile(currentGrid.startPos).transform.position + posOffset;
-        currTileId = currentGrid.startPos;
+        transform.position = currentGrid.GetTile(currentGrid.startTile).transform.position + posOffset;
+        currTileId = currentGrid.startTile;
         timer = delay;
     }
     private void BeginDelay(float time)
     {
         timer = 0;
         delay = time;
+        isOnDelay = true;
+    }
+    private void EndDelay()
+    {
+        isOnDelay = false;
     }
     // Update is called once per frame
     void Update()
     {
         if (timer >= delay)
         {
-            
+            EndDelay();
             if (movVector.x > 0)
             {
                 BeginDelay(inputDelay);

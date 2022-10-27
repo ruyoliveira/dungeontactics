@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
     public Enemy _enemy;
     public MovementPattern pattern;
     public int patternStep;
-    public Vector2 startPos;
 
     public Color actionColor;
 
@@ -26,18 +25,11 @@ public class EnemyMovement : MonoBehaviour
     public bool hasDamaged;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PrepareBattle();
-
-    }
-
-    public void PrepareBattle()
+    public void PrepareBattle(Vector2 spawnTile)
     {
         // Start position
-        transform.position = currentGrid.GetTile(currentGrid.startPos).transform.position + posOffset;
-        currTileId = startPos;
+        transform.position = currentGrid.GetTile(spawnTile).transform.position + posOffset;
+        currTileId = spawnTile;
         timer = delay;
         patternStep = 0;
         BeginDelay(inputDelay);
@@ -93,7 +85,11 @@ public class EnemyMovement : MonoBehaviour
         {
             foreach (Vector2 target in pattern.card.targets)
             {
-                currentGrid.SelectTile(target + currTileId).SetTimedEffect(EffectType.Damage, 1.0f, 0.3f, actionColor);
+                Tile selTile = currentGrid.SelectTile(target + currTileId);
+                if(selTile != null)
+                {
+                    selTile.SetTimedEffect(EffectType.Damage, 1.0f, 0.3f, actionColor);
+                }
             }
         }
     }

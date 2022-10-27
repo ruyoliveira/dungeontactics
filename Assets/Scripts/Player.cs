@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     public int currHP;
     public int maxHP;
+    public PlayerBattleHandler battlerHandler;
+    public PlayerTileMovement tileMovement;
+    public PlayerControl controls;
     // Start is called before the first frame update
     void Start()
     {
