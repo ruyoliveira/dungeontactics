@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 20793544}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,7 +1084,7 @@ PrefabInstance:
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.960001
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
@@ -1574,7 +1574,7 @@ PrefabInstance:
     - target: {fileID: 6679882812594950452, guid: f6535c2d3eaaf5e4aa5b68c25616fbe7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.0533857
+      value: 6.093386
       objectReference: {fileID: 0}
     - target: {fileID: 6679882812594950452, guid: f6535c2d3eaaf5e4aa5b68c25616fbe7,
         type: 3}
@@ -1899,7 +1899,7 @@ GameObject:
   - component: {fileID: 622948234}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2071,7 +2071,7 @@ GameObject:
   - component: {fileID: 649159010}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2188,7 +2188,7 @@ Transform:
   - {fileID: 1168098498}
   - {fileID: 1286116786}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666702892
 GameObject:
@@ -2204,7 +2204,7 @@ GameObject:
   - component: {fileID: 666702894}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2726,7 +2726,7 @@ GameObject:
   - component: {fileID: 807953488}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2823,7 +2823,7 @@ GameObject:
   - component: {fileID: 821443328}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3706,6 +3706,7 @@ GameObject:
   - component: {fileID: 961739752}
   - component: {fileID: 961739751}
   - component: {fileID: 961739750}
+  - component: {fileID: 961739754}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3812,6 +3813,26 @@ Transform:
   m_Father: {fileID: 1875014869}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!95 &961739754
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961739749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da53a28a2b956d945b6d3dd77ff5491d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &964545017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,7 +3847,7 @@ GameObject:
   - component: {fileID: 964545019}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3943,6 +3964,38 @@ Transform:
   - {fileID: 1253332270}
   m_Father: {fileID: 1066711255}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &997467623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997467624}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997467624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997467623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.227169, y: -7.1660333, z: -14.202063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1075353773}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1044580920
 GameObject:
@@ -4087,7 +4140,7 @@ GameObject:
   - component: {fileID: 1075353773}
   - component: {fileID: 1075353772}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Sidescroll loop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4196,13 +4249,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075353771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.31016, y: 3.51057, z: 51.718994}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.082993, y: 10.676603, z: 65.92106}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 997467624}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1086244678
 GameObject:
@@ -4251,7 +4304,7 @@ GameObject:
   - component: {fileID: 1091312438}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4366,7 +4419,7 @@ PrefabInstance:
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.960001
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
@@ -4628,7 +4681,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1153876241
 PrefabInstance:
@@ -4898,7 +4951,7 @@ GameObject:
   - component: {fileID: 1253332271}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5152,7 +5205,7 @@ GameObject:
   - component: {fileID: 1387024414}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5343,7 +5396,7 @@ Transform:
   - {fileID: 1594024575}
   - {fileID: 388863062}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485892645
 GameObject:
@@ -6045,7 +6098,7 @@ GameObject:
   - component: {fileID: 1645488930}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6148,7 +6201,7 @@ GameObject:
   - component: {fileID: 1679657549}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6320,7 +6373,7 @@ PrefabInstance:
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.960001
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7348832986756127218, guid: 2893f6399531e164084b782e2e06c2ba,
         type: 3}
@@ -6777,7 +6830,7 @@ Transform:
   m_Children:
   - {fileID: 961739753}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1875014870
 MonoBehaviour:
@@ -6795,7 +6848,7 @@ MonoBehaviour:
   rb: {fileID: 1875014871}
   jumpHeight: 5
   isGrounded: 0
-  _anim: {fileID: 0}
+  _anim: {fileID: 961739754}
   controllerType: 0
   tileMovement: {fileID: 0}
 --- !u!54 &1875014871
@@ -6928,7 +6981,7 @@ GameObject:
   - component: {fileID: 1896913340}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7157,7 +7210,7 @@ GameObject:
   - component: {fileID: 1917077718}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7607,7 +7660,7 @@ GameObject:
   - component: {fileID: 2044136219}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7773,7 +7826,7 @@ GameObject:
   - component: {fileID: 2060716704}
   m_Layer: 0
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: EnemySpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
