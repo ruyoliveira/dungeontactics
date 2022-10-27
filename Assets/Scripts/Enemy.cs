@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int currHP;
     public int maxHP;
-
+    public EnemyMovement movController;
     // Start is called before the first frame update
     void Start()
     {

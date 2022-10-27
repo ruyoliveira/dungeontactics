@@ -6,10 +6,11 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public GameObject tilePrefab;
+    public Transform gridCenter;
     public int totalTiles;
     public int width;
     public int height;
-    public Vector2 startPos;
+    public Vector2 startTile;
     public Dictionary<Vector2, GameObject> tiles;
     public bool generateGrid;
 
@@ -71,7 +72,7 @@ public class GridManager : MonoBehaviour
             for (int j = 0; j < h; j++)
             {
                 // Instantiate and position tiles centered in the grid
-                var newTile = Instantiate(tilePrefab, new Vector3(i - w / 2, 0, j - h / 2), Quaternion.identity);
+                var newTile = Instantiate(tilePrefab, new Vector3(i - w / 2, 0, j - h / 2) + gridCenter.position, Quaternion.identity);
                 // Name tile
                 newTile.name = $"Tile {i + 1},{j + 1}";
                 // Set gridmanager as parent
