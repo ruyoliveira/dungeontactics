@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6504385381362548503}
   - component: {fileID: 6504385381362548500}
   - component: {fileID: 6504385381362548501}
+  - component: {fileID: 6414952314612487980}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 27c4595d906404541919aac888f62f7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,7 +116,6 @@ MonoBehaviour:
   _enemy: {fileID: 6504385381362548500}
   pattern: {fileID: 11400000, guid: 50c5b5aaa09a51d46b1c32427827aa3e, type: 2}
   patternStep: 0
-  startPos: {x: 4, y: 4}
   actionColor: {r: 1, g: 0.35026363, b: 0, a: 1}
   currentGrid: {fileID: 0}
   posOffset: {x: 0, y: 1, z: 0}
@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currHP: 4
   maxHP: 4
+  movController: {fileID: 6504385381362548503}
+  _anim: {fileID: 6414952314612487980}
 --- !u!54 &6504385381362548501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -152,3 +154,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!95 &6414952314612487980
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504385381362548506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 27487153c6cb9bd4c81013509b83ed89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

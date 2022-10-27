@@ -135,9 +135,7 @@ public class PlayerTileMovement : MonoBehaviour
             if (!hasDamaged && CheckDamageTile())
             {
                 hasDamaged = true;
-                _player.currHP--;
-                // Feedback
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 500);
+                _player.ApplyDamage(1);
             }
         }
 

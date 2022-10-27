@@ -7,14 +7,19 @@ public class Enemy : MonoBehaviour
     public int currHP;
     public int maxHP;
     public EnemyMovement movController;
+    public Animator _anim;
     // Start is called before the first frame update
     void Start()
     {
         currHP = maxHP;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ApplyDamage(int dmg)
+    {
+        currHP -= dmg;
+        _anim.SetTrigger("Damage");
+    }
+        // Update is called once per frame
+        void Update()
     {
         if(currHP <=0)
         {

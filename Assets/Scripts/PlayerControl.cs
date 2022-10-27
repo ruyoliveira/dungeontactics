@@ -39,7 +39,7 @@ public class PlayerControl : MonoBehaviour
             SideScrollerMovement();
         }
     }
-    private void SideScrollerMovement()
+    public void SideScrollerMovement()
     {
         transform.Translate(Vector3.forward * movVector.x * speed * Time.deltaTime);
 
@@ -50,11 +50,17 @@ public class PlayerControl : MonoBehaviour
         }
 
     }
-    private void ChangeToIsometric()
+    public void ChangeToIsometric()
     {
         controllerType = ControllerType.Isometric;
         _anim.SetBool("isometric", true);
         //tileMovement.PrepareBattle();
+    }
+    public void ChangeToSidescroller()
+    {
+        Debug.Log("Encounter end");
+        _anim.SetBool("isometric", false);
+        controllerType = ControllerType.SideScroller;
     }
     public void OnMove(InputValue movementValue)
     {
@@ -67,6 +73,8 @@ public class PlayerControl : MonoBehaviour
         {
             Debug.Log("Encounter triggered");
             other.GetComponent<EncounterController>().PrepareBattle();
+            // Disable collider to avoid setting up more than once
+            other.enabled = false;  
            
             ChangeToIsometric();
         }
